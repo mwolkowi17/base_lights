@@ -40,23 +40,33 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 //const materialB = new THREE.MeshBasicMaterial({ color: 0x0000FFFF });
+//1st light
 const intensity = 1;
 const skyColor = 0xB1E1FF;  // light blue
 const groundColor = 0xB97A20;  // brownish orange
 const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
 //light.position.set( 50, 50, 50 );
+
+//2nd light
 const color1 = 0xFFFFFF;
-const intensity1 = 0.2;
+const intensity1 = 0.7;
 const light2 = new THREE.DirectionalLight(color1, intensity1);
-light2.position.set(-10, 10, 0);
+light2.position.set(-5, 5, 10);
 light2.target.position.set(-5, 0, 0);
+
+//3rd light
+const color3 = 0xFFFFFF;
+const intensity3 = 1;
+const light3 = new THREE.PointLight(color3, intensity3);
+light3.position.set(-8, 10, 0);
 
 
 cube.add(line);
 scene.add(cube);
-scene.add(light);
+//scene.add(light);
 scene.add(light2);
 scene.add(light2.target);
+scene.add(light3)
 
 camera.position.z = 5;
 
